@@ -1,13 +1,14 @@
-name: Keep Alive
+name: Keep Streamlit Alive
 
 on:
   schedule:
-    - cron: '0 */10 * * *'
+    - cron: '0 */8 * * *'     #
   workflow_dispatch:
 
 jobs:
   keep-alive:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: git commit --allow-empty -m "Keep alive $(date)" || true && git push || true
+      - name: Ping Streamlit App
+        run: |
+          curl -I -L -s -o /dev/null -w "%{http_code}" https://streamlit.app
