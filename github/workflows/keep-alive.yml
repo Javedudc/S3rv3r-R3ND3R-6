@@ -1,4 +1,4 @@
-name: Keep Streamlit App Alive
+name: Keep Alive
 
 on:
   schedule:
@@ -6,12 +6,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  keep-alive:
+  ping:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit --allow-empty -m "Keep app alive - $(date)" || true
-          git push || true
+      - run: git commit --allow-empty -m "Keep alive $(date)" || true && git push || true
