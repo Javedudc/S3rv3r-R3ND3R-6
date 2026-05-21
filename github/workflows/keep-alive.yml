@@ -1,11 +1,13 @@
 name: Keep Alive
+
 on:
-schedule:
-- cron: '0 */10 * * *'
-workflow_dispatch:
+  schedule:
+    - cron: '0 */10 * * *'
+  workflow_dispatch:
+
 jobs:
-ping:
-runs-on: ubuntu-latest
-steps:
-- uses: actions/checkout@v4
-- run: git commit --allow-empty -m "Keep alive $(date)" || true && git push || true
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: git commit --allow-empty -m "Keep alive $(date)" || true && git push || true
