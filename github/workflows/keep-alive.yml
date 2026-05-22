@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: Ping Streamlit App
         run: |
-          curl -I -L -s -o /dev/null -w "%{http:s3rv3r-r3nd3r-6-rf48te4z7tlqpcykbasaar.streamlit.app/}" 
+          curl -I -L -s -o /dev/null -w "%{http:}"s3rv3r-r3nd3r-6-rf48te4z7tlqpcykbasaar.streamlit.app/
